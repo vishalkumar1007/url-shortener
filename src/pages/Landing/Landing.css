@@ -82,11 +82,11 @@
 
 .Landing_main_section_2_effect_color{
     background-color: #ada1a1;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-wrap: wrap;
-    filter: blur(250px);
+    filter: blur(120px);
     position: absolute;
     z-index: 1;
     max-width: 800px;
