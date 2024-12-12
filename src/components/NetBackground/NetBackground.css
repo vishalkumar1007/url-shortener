@@ -1,0 +1,50 @@
+.NetBackground_main {
+  background-color: #1a2036;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.NetBackground_main_overflow_handel {
+  /* background-color: blueviolet; */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-width: 1300px;
+}
+
+/* horizontal line pvr  */
+
+.NetBackground_horizontal_full_pvr {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.NetBackground_horizontal_line {
+  background-color: #22293f99;
+  width: 100%;
+  height: 2px;
+}
+
+/* vertical line pvr  */
+
+.NetBackground_vertical_full_pvr {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+.NetBackground_vertical_line {
+  background-color: #22293f99;
+  width: 2px;
+  height: 100%;
+}
+
+/* bgMain : #1a2036 */
+/* bgLine : #22293f */
+/* componentMain : #252b43 */
+/* componentOuter : #2f3650 */

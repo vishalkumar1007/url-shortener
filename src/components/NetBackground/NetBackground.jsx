@@ -1,0 +1,111 @@
+import "./NetBackground.css";
+
+const NetBackground = () => {
+  return (
+    <div className="NetBackground_main">
+      <div className="NetBackground_main_overflow_handel">
+        <div className="NetBackground_horizontal_full_pvr">
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+          <div className="NetBackground_horizontal_line"></div>
+        </div>
+        <div className="NetBackground_vertical_full_pvr">
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+          <div className="NetBackground_vertical_line"></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NetBackground;

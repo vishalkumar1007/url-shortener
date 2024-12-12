@@ -1,0 +1,52 @@
+.Navbar_main{
+    width: 100%;
+    height: 95px;
+    /* background-color: #275a86bb; */
+    backdrop-filter: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.Navbar_content_box{
+    background-color: #ececec14;
+    /* background-color: #1cad7f1e; */
+    width: 90%;
+    max-width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* padding: 0px 10px; */
+    position: relative;
+    box-shadow: 0px 0px 10px #141624e1;
+}
+
+.Navbar_content_box::before{
+    content: '';
+    /* background-color: rgb(75, 25, 192); */
+    background: linear-gradient(#db7807,#eada03);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.Navbar_content_box_left{
+    background-color: #1416249a;
+    /* background-color: #273cd99a; */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px dotted #7e4510;
+    overflow: hidden;
+    z-index: 5;
+}
+.Navbar_content_box_left img{
+    width: 100%;
+    height: 100%;    
+}
