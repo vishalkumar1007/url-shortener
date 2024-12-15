@@ -90,7 +90,7 @@
     position: absolute;
     z-index: 1;
     max-width: 800px;
-    animation: rotateAni 60s infinite;
+    animation: rotateAni 30s infinite;
     border-radius: 50%;
     overflow: hidden;
     /* transform: infinite rotate(180%); */
@@ -297,12 +297,13 @@
     position: relative;
 }
 .copy_output_url_icon_box{
-    width: 25px;
-    height: 25px;
-    /* background-color: #161b28; */
+    width: 28px;
+    height: 24px;
+    background-color: #1b2234;
+    /* background-color: #404143c7; */
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: 0px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -318,6 +319,19 @@
     font-size: 22px;
     text-align: center;
     font-weight: 700;
+}
+
+#rotate_loader{
+    animation:spin 2s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 /* bgMain : #1a2036 */

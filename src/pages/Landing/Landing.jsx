@@ -3,6 +3,7 @@ import NetBackground from "../../components/NetBackground/NetBackground";
 // import img from '../../assets/image_background_for_url_shortner.jpg'
 import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useState } from "react";
+import { Toaster, toast } from "sonner";
 
 const Landing = () => {
   const [inputValue, setInputValue] = useState("");
@@ -11,9 +12,7 @@ const Landing = () => {
   const [urlExpiredIn, setUrlExpiredIn] = useState("30 min");
   const [noOfUrl, setNoOfUrl] = useState("1");
   const [shortUrlOutput, setShortUrlOutput] = useState("");
-
-
-
+  const [loaderActive, setLoaderActive] = useState(false);
 
   // performing the copy text of short url output
   const copyToClipboard = () => {
@@ -21,7 +20,11 @@ const Landing = () => {
       navigator.clipboard
         .writeText(shortUrlOutput)
         .then(() => {
-          alert("Text copied to clipboard!");
+          toast.success("Text copy to clipboard",{
+            style:{
+              color:'#19b030d0'
+            }
+          });
         })
         .catch((err) => {
           console.error("Failed to copy text: ", err);
@@ -35,15 +38,81 @@ const Landing = () => {
       textarea.select();
       try {
         document.execCommand("copy");
-        alert("Text copied to clipboard!");
+        toast.success("Text copy to clipboard",{
+          style:{
+            color:'#19b030d0'
+          }
+        });
       } catch (err) {
         console.error("Fallback: Failed to copy text: ", err);
       }
       document.body.removeChild(textarea);
     }
   };
-  
-  // validate user url input 
+
+  // handel on click button to get coded url
+
+  const handelUserSubmitUrl = async () => {
+    if (!(inputValue.length > 5 && isValidInput)) {
+      return toast.error("Invalid url ,or Must include https://",{
+        style:{
+          color:'#d92525e1'
+        }
+      });
+    }
+
+    const data = {
+      userUrl: inputValue,
+    };
+
+    if (isValidInput && inputValue.length > 4) {
+      setLoaderActive(true);
+      const generateUrlApi = "http://localhost:8081/getCode";
+      await fetch(generateUrlApi, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            console.log("not ok");
+            setLoaderActive(false);
+            return toast.error("Invalid url ,or Must include https://",{
+              style:{
+                color:'#d92525e1'
+              }
+            });
+          }
+          setLoaderActive(false);
+          return res.json();
+        })
+        .then((data) => {
+          if (data) {
+            setShortUrlOutput(data.url);
+            setLoaderActive(false);
+            setInputValue('');
+            toast.success("Text copy to clipboard",{
+              style:{
+                color:'#19b030d0'
+              }
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error("Invalid url ,or Must include https://",{
+            style:{
+              color:'#d92525e1'
+            }
+          });
+          setLoaderActive(false);
+          console.log("Error while on call api", err);
+        });
+    }
+  };
+
+  // validate user url input
   useEffect(() => {
     if (isInputActive && inputValue.length > 0) {
       if (inputValue.length < 7) {
@@ -81,6 +150,17 @@ const Landing = () => {
         <NetBackground />
       </div>
       <div className="Landing_main">
+        <Toaster
+          position="top-right"
+          richColors
+          toastOptions={{
+            style: {
+              background: "#252f4663",
+              border: "1px solid #404143c7",
+              fontSize: "17px",
+            },
+          }}
+        />
         <div className="Landing_main_section_1">
           <Navbar />
         </div>
@@ -105,6 +185,7 @@ const Landing = () => {
                     ? "0px 0px 10px #1d192c7a"
                     : "0px 0px 10px #ff00007a",
                 }}
+                value={inputValue}
                 type="text"
                 id="url_input_short"
                 placeholder="Enter or paste your url to make it short"
@@ -112,22 +193,40 @@ const Landing = () => {
                 onFocus={() => setIsInputActive(true)}
                 onBlur={() => setIsInputActive(false)}
               />
-              <button id="url_short_btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#9f9f9f"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-send"
-                >
-                  <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
-                  <path d="m21.854 2.147-10.94 10.939" />
-                </svg>
+              <button id="url_short_btn" onClick={() => handelUserSubmitUrl()}>
+                {loaderActive ? (
+                  <svg
+                    id="rotate_loader"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#7784a2"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-loader-circle"
+                  >
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#9f9f9f"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-send"
+                  >
+                    <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+                    <path d="m21.854 2.147-10.94 10.939" />
+                  </svg>
+                )}
               </button>
             </div>
             <div className="Landing_main_section_2_layout_bottom">
@@ -179,7 +278,7 @@ const Landing = () => {
                           xmlns="http://www.w3.org/2000/svg"
                           width="15"
                           height="15"
-                          viewBox="0 0 24 24"
+                          viewBox="0 -4 27 27"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2.2"
