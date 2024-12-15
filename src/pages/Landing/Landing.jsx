@@ -95,7 +95,7 @@ const Landing = () => {
             setShortUrlOutput(data.url);
             setLoaderActive(false);
             setInputValue('');
-            toast.success("your short url ready ❤️",{
+            toast.success("your short url is ready ❤️",{
               style:{
                 color:'#19b030d0'
               }
@@ -114,12 +114,23 @@ const Landing = () => {
     }
   };
 
+  // action on user press enter button.
+
+  const handelToSubmitOnEnter = (e)=>{
+    if(e.key ==='Enter' && isValidInput){
+      handelUserSubmitUrl();
+    }
+  }
+
   // validate user url input
   useEffect(() => {
     if (isInputActive && inputValue.length > 0) {
       if (inputValue.length < 7) {
         setIsValidInput(false);
-      } else if (
+      }else if(inputValue.includes('http://localhost:8081/getCode')){
+        setIsValidInput(false);
+      }
+       else if (
         !(inputValue.includes("https://") || inputValue.includes("http://"))
       ) {
         setIsValidInput(false);
@@ -194,6 +205,7 @@ const Landing = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onFocus={() => setIsInputActive(true)}
                 onBlur={() => setIsInputActive(false)}
+                onKeyDown={(e)=>{handelToSubmitOnEnter(e)}}
               />
               <button id="url_short_btn" onClick={() => handelUserSubmitUrl()}>
                 {loaderActive ? (
