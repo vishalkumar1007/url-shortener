@@ -69,7 +69,7 @@ const Landing = () => {
 
     if (isValidInput && inputValue.length > 4) {
       setLoaderActive(true);
-      const generateUrlApi = "https://shorturl-snowy.vercel.app/getCode";
+      const generateUrlApi = "http://localhost:8081/getCode";
       await fetch(generateUrlApi, {
         method: "POST",
         headers: {
@@ -95,7 +95,7 @@ const Landing = () => {
             setShortUrlOutput(data.url);
             setLoaderActive(false);
             setInputValue('');
-            toast.success("Text copy to clipboard",{
+            toast.success("your short url ready ❤️",{
               style:{
                 color:'#19b030d0'
               }
