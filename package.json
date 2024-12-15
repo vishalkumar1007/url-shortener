@@ -1,7 +1,7 @@
 {
   "name": "url-shortener",
   "private": true,
-  "homepage": "https://vishalkumar07.me/shorturl",
+  "homepage": "https://vishalkumar07.me/url-shortener",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
