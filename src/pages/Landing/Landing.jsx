@@ -69,7 +69,7 @@ const Landing = () => {
 
     if (isValidInput && inputValue.length > 4) {
       setLoaderActive(true);
-      const generateUrlApi = "http://localhost:8081/getCode";
+      const generateUrlApi = "https://shorturl-snowy.vercel.app/getCode";
       await fetch(generateUrlApi, {
         method: "POST",
         headers: {
