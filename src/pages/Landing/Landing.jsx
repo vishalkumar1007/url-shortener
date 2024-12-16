@@ -129,7 +129,7 @@ const Landing = () => {
     if (isInputActive && inputValue.length > 0) {
       if (inputValue.length < 7) {
         setIsValidInput(false);
-      } else if (inputValue.includes("http://localhost:8081/getCode")) {
+      } else if (inputValue.includes("http://localhost:8081")) {
         setIsValidInput(false);
       } else if (
         !(inputValue.includes("https://") || inputValue.includes("http://"))
@@ -196,7 +196,7 @@ const Landing = () => {
               <input
                 style={{
                   boxShadow: isValidInput
-                    ? "0px 0px 10px #1d192c"
+                    ? "0px 0px 10px #1d192c88"
                     : "0px 0px 10px #ff00007a",
                 }}
                 value={inputValue}
@@ -322,8 +322,9 @@ const Landing = () => {
 
             <div className="Landing_main_section_2_layout_bottom"
               style={{height:shortUrlOutput.length === 0?'0px':'auto',
-                transition:'0.5s ease-in-out'
+                transition:'0.3s ease-in-out'
               }}
+              
             >
               <div className="Landing_main_section_2_layout_bottom_right">
                 <div className="Landing_main_section_2_layout_bottom_right_output_value">

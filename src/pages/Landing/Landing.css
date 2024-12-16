@@ -36,6 +36,7 @@
 
 .Landing_main_section_1{
     /* background-color: tan; */
+    /* background-color: #1d192c88; */
     width:97%;
     height: 23%;
     display: flex;
@@ -283,7 +284,7 @@
     max-height: 210px;
     border-radius: 15px;
     overflow: hidden;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 12px 20px 12px;
     /* border: 0.5px solid #505050; */
     /* overflow: scroll; */
     position: relative;
@@ -381,8 +382,12 @@
     .Landing_main_section_1{
         height: 33%;
         /* max-height: 90px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .Landing_main_section_3{
+        max-height: 100px;
         height: 17%;
     }
 }
@@ -394,6 +399,17 @@
     #Landing_main_section_3_para{
         font-size: 16px;
     }
+    .Landing_main_section_1{
+        /* background-color: red; */
+        height: 33%;
+        /* max-height: 300px; */
+        /* max-height: 90px; */
+    }
+    .Landing_main_section_3{
+        /* background-color: red; */
+        max-height: 100px;
+        height: 15%;
+    }
 }
 @media (max-width:410px){
     #Landing_main_section_3_head{
@@ -404,7 +420,9 @@
         /* max-height: 90px; */
     }
     .Landing_main_section_3{
-        height: 13%;
+        max-height: 100px;
+        /* background-color: darkblue; */
+        height: 12%;
     }
     #Landing_main_section_3_para{
         font-size: 14px;
@@ -419,6 +437,7 @@
         /* max-height: 90px; */
     }
     .Landing_main_section_3{
+        max-height: 100px;
         height: 10%;
     }
     #Landing_main_section_3_para{
@@ -434,6 +453,7 @@
         /* max-height: 90px; */
     }
     .Landing_main_section_3{
+        max-height: 100px;
         height: 8%;
     }
     #Landing_main_section_3_para{
@@ -449,6 +469,7 @@
         /* max-height: 90px; */
     }
     .Landing_main_section_3{
+        max-height: 100px;
         height: 15%;
     }
     #Landing_main_section_3_para{
