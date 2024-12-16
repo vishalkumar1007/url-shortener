@@ -11,9 +11,11 @@ const Landing = () => {
   const [inputValue, setInputValue] = useState("");
   const [isValidInput, setIsValidInput] = useState(true);
   const [isInputActive, setIsInputActive] = useState(false);
-  const [urlExpiredIn, setUrlExpiredIn] = useState("30 min");
-  const [noOfUrl, setNoOfUrl] = useState("1");
+  // const [urlExpiredIn, setUrlExpiredIn] = useState("30 min");
+  // const [noOfUrl, setNoOfUrl] = useState("1");
   const [shortUrlOutput, setShortUrlOutput] = useState("");
+  
+  
   const [loaderActive, setLoaderActive] = useState(false);
 
   // performing the copy text of short url output
@@ -22,10 +24,10 @@ const Landing = () => {
       navigator.clipboard
         .writeText(shortUrlOutput)
         .then(() => {
-          toast.success("Text copy to clipboard",{
-            style:{
-              color:'#19b030d0'
-            }
+          toast.success("Text copy to clipboard", {
+            style: {
+              color: "#19b030d0",
+            },
           });
         })
         .catch((err) => {
@@ -40,10 +42,10 @@ const Landing = () => {
       textarea.select();
       try {
         document.execCommand("copy");
-        toast.success("Text copy to clipboard",{
-          style:{
-            color:'#19b030d0'
-          }
+        toast.success("Text copy to clipboard", {
+          style: {
+            color: "#19b030d0",
+          },
         });
       } catch (err) {
         console.error("Fallback: Failed to copy text: ", err);
@@ -56,10 +58,10 @@ const Landing = () => {
 
   const handelUserSubmitUrl = async () => {
     if (!(inputValue.length > 5 && isValidInput)) {
-      return toast.error("Invalid url ,or Must include https://",{
-        style:{
-          color:'#d92525e1'
-        }
+      return toast.error("Invalid url ,or Must include https://", {
+        style: {
+          color: "#d92525e1",
+        },
       });
     }
 
@@ -81,10 +83,10 @@ const Landing = () => {
           if (!res.ok) {
             console.log("not ok");
             setLoaderActive(false);
-            return toast.error("Invalid url ,or Must include https://",{
-              style:{
-                color:'#d92525e1'
-              }
+            return toast.error("Invalid url ,or Must include https://", {
+              style: {
+                color: "#d92525e1",
+              },
             });
           }
           setLoaderActive(false);
@@ -94,19 +96,19 @@ const Landing = () => {
           if (data) {
             setShortUrlOutput(data.url);
             setLoaderActive(false);
-            setInputValue('');
-            toast.success("your short url is ready ❤️",{
-              style:{
-                color:'#19b030d0'
-              }
+            setInputValue("");
+            toast.success("your short url is ready ❤️", {
+              style: {
+                color: "#19b030d0",
+              },
             });
           }
         })
         .catch((err) => {
-          toast.error("Invalid url ,or Must include https://",{
-            style:{
-              color:'#d92525e1'
-            }
+          toast.error("Invalid url ,or Must include https://", {
+            style: {
+              color: "#d92525e1",
+            },
           });
           setLoaderActive(false);
           console.log("Error while on call api", err);
@@ -116,21 +118,20 @@ const Landing = () => {
 
   // action on user press enter button.
 
-  const handelToSubmitOnEnter = (e)=>{
-    if(e.key ==='Enter' && isValidInput){
+  const handelToSubmitOnEnter = (e) => {
+    if (e.key === "Enter" && isValidInput) {
       handelUserSubmitUrl();
     }
-  }
+  };
 
   // validate user url input
   useEffect(() => {
     if (isInputActive && inputValue.length > 0) {
       if (inputValue.length < 7) {
         setIsValidInput(false);
-      }else if(inputValue.includes('http://localhost:8081/getCode')){
+      } else if (inputValue.includes("http://localhost:8081/getCode")) {
         setIsValidInput(false);
-      }
-       else if (
+      } else if (
         !(inputValue.includes("https://") || inputValue.includes("http://"))
       ) {
         setIsValidInput(false);
@@ -178,9 +179,9 @@ const Landing = () => {
           <Navbar />
         </div>
         <div className="Landing_main_section_3">
-          <p id="Landing_main_section_3_head">Short Your ULR</p>
+          <p id="Landing_main_section_3_head">Hide Your Real URL</p>
           <p id="Landing_main_section_3_para">
-            any length of url you can make it small
+            Or you may use this to make your url shorter.
           </p>
         </div>
         <div className="Landing_main_section_2">
@@ -195,17 +196,19 @@ const Landing = () => {
               <input
                 style={{
                   boxShadow: isValidInput
-                    ? "0px 0px 10px #1d192c7a"
+                    ? "0px 0px 10px #1d192c"
                     : "0px 0px 10px #ff00007a",
                 }}
                 value={inputValue}
                 type="text"
                 id="url_input_short"
-                placeholder="Enter or paste your url to make it short"
+                placeholder="Enter or paste your url for hide original url or make it short"
                 onChange={(e) => setInputValue(e.target.value)}
                 onFocus={() => setIsInputActive(true)}
                 onBlur={() => setIsInputActive(false)}
-                onKeyDown={(e)=>{handelToSubmitOnEnter(e)}}
+                onKeyDown={(e) => {
+                  handelToSubmitOnEnter(e);
+                }}
               />
               <button id="url_short_btn" onClick={() => handelUserSubmitUrl()}>
                 {loaderActive ? (
@@ -243,7 +246,7 @@ const Landing = () => {
                 )}
               </button>
             </div>
-            <div className="Landing_main_section_2_layout_bottom">
+            {/* <div className="Landing_main_section_2_layout_bottom">
               <div className="Landing_main_section_2_layout_bottom_left">
                 <div className="Landing_main_section_2_layout_bottom_left_conf_action">
                   <div className="Landing_main_section_2_layout_bottom_left_conf_action_link_expire">
@@ -315,6 +318,54 @@ const Landing = () => {
                   )}
                 </div>
               </div>
+            </div> */}
+
+            <div className="Landing_main_section_2_layout_bottom"
+              style={{height:shortUrlOutput.length === 0?'0px':'auto',
+                transition:'0.5s ease-in-out'
+              }}
+            >
+              <div className="Landing_main_section_2_layout_bottom_right">
+                <div className="Landing_main_section_2_layout_bottom_right_output_value">
+                  {shortUrlOutput.length === 0 ? (
+                    <p id="output_alert_LMS">Give url to get shorter url</p>
+                  ) : (
+                    <div id="Landing_main_section_2_layout_bottom_right_output_value_url_div">
+                      <p id="op_url_server">{shortUrlOutput}</p>
+                      <button
+                        className="copy_output_url_icon_box"
+                        onClick={() => copyToClipboard()}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15"
+                          height="15"
+                          viewBox="0 -4 27 27"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-copy"
+                        >
+                          <rect
+                            width="14"
+                            height="14"
+                            x="8"
+                            y="8"
+                            rx="2"
+                            ry="2"
+                          />
+                          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                        </svg>
+                      </button>
+                    </div>
+                    
+                  )}
+                </div>
+                
+              </div>
+              
             </div>
           </div>
         </div>
