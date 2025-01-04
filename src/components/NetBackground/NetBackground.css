@@ -1,5 +1,5 @@
 .NetBackground_main {
-  background-color: #1a2036;
+  background-color: #090b13;
   width: 100%;
   height: 100dvh;
   overflow: hidden;
@@ -24,9 +24,10 @@
   justify-content: space-around;
 }
 .NetBackground_horizontal_line {
-  background-color: #22293f99;
+  background-color: #151828ba;
+  /* background-color: #79126299; */
   width: 100%;
-  height: 2px;
+  height: 0.5px;
 }
 
 /* vertical line pvr  */
@@ -39,8 +40,9 @@
   justify-content: space-around;
 }
 .NetBackground_vertical_line {
-  background-color: #22293f99;
-  width: 2px;
+  background-color: #151828ba;
+  /* background-color: #7b562899; */
+  width: 0.5px;
   height: 100%;
 }
 

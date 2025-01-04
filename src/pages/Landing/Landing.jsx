@@ -197,7 +197,7 @@ const Landing = () => {
                 style={{
                   boxShadow: isValidInput
                     ? "0px 0px 10px #1d192c88"
-                    : "0px 0px 10px #ff00007a",
+                    : "0px 0px 10px #510606",
                 }}
                 value={inputValue}
                 type="text"
@@ -219,7 +219,7 @@ const Landing = () => {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#7784a2"
+                    stroke="#9a0d5fd7"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -234,7 +234,7 @@ const Landing = () => {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#9f9f9f"
+                    stroke="#9a0d5fd7"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

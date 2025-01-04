@@ -28,7 +28,7 @@
 .Navbar_content_box::before{
     content: '';
     /* background-color: rgb(75, 25, 192); */
-    background: linear-gradient(#db7807,#eada03);
+    background: linear-gradient(#ffffff,#b46f0f);
     width: 25px;
     height: 25px;
     position: absolute;
@@ -42,7 +42,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px dotted #7e4510;
+    border: 2px dotted #76430d;
     overflow: hidden;
     z-index: 5;
 }
